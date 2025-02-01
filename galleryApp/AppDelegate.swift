@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let mainViewController = MainViewController()
-        mainViewController.title = "Artists"
         
         let navigationController = UINavigationController(rootViewController: mainViewController)
         
