@@ -9,7 +9,7 @@ import UIKit
 
 class Cell: UITableViewCell {
     
-    let profileImageView: UIImageView = {
+    let image: UIImageView = {
             let imageView = UIImageView()
             imageView.contentMode = .scaleAspectFill
             imageView.layer.cornerRadius = 10
@@ -18,20 +18,20 @@ class Cell: UITableViewCell {
             return imageView
         }()
         
-        let titleLabel: UILabel = {
+        let name: UILabel = {
             let label = UILabel()
-            label.font = UIFont.boldSystemFont(ofSize: 16)
+            label.font = UIFont.systemFont(ofSize: 16)
             label.numberOfLines = 1
             label.textColor = .black
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
         
-        let subtitleLabel: UILabel = {
+        let bio: UILabel = {
             let label = UILabel()
-            label.font = UIFont.systemFont(ofSize: 14)
+            label.font = UIFont.boldSystemFont(ofSize: 14)
             label.textColor = UIColor.gray
-            label.numberOfLines = 1
+            label.numberOfLines = 2
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -39,34 +39,35 @@ class Cell: UITableViewCell {
          override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             
-            contentView.addSubview(profileImageView)
-            contentView.addSubview(titleLabel)
-            contentView.addSubview(subtitleLabel)
+            contentView.addSubview(image)
+            contentView.addSubview(name)
+            contentView.addSubview(bio)
             
             NSLayoutConstraint.activate([
-                profileImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-                profileImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                profileImageView.widthAnchor.constraint(equalToConstant: 50),
-                profileImageView.heightAnchor.constraint(equalToConstant: 50),
+                image.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
+                image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                image.widthAnchor.constraint(equalToConstant: 100),
+                image.heightAnchor.constraint(equalToConstant: 100),
                 
-                titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-                titleLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 15),
-                titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+                name.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+                name.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 15),
+                name.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
                 
-                subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
-                subtitleLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 15),
-                subtitleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-                subtitleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+                bio.topAnchor.constraint(equalTo: name.bottomAnchor, constant: 10),
+                bio.leadingAnchor.constraint(equalTo: image.trailingAnchor, constant: 15),
+                bio.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+                
             ])
         }
         
-         func configure(with image: UIImage?, title: String, subtitle: String) {
-            profileImageView.image = image
-            titleLabel.text = title
-            subtitleLabel.text = subtitle
-        }
+    func configure(with artist: ArtistModel) {
+        name.text = artist.name
+        bio.text = artist.bio
+        image.image = UIImage(named: artist.image)
+    }
         
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
 }
+
