@@ -143,4 +143,13 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let work = oneArtist?.works[indexPath.row]
+        let paitingVC = PaintingViewController()
+        paitingVC.artwork = work
+        navigationController?.pushViewController(paitingVC, animated: true)
+
+    }
 }
