@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
     var tableView = UITableView()
     var networkManager = NetworkService()
     var artists: [ArtistModel] = []
+    var filteredArtists: [ArtistModel] = []
+        var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(Cell.self, forCellReuseIdentifier: "Cell")
+        searchBar.delegate = self
     }
     
     
@@ -66,16 +69,15 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return artists.count
+        return isSearching ? filteredArtists.count : artists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? Cell else {
             return UITableViewCell()
         }
-        let artist = artists[indexPath.row]
-        
-        cell.configure(with: artist)
+        let artist = isSearching ? filteredArtists[indexPath.row] : artists[indexPath.row]
+            cell.configure(with: artist)
         
         return cell
     }
@@ -95,15 +97,30 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MainViewController: UISearchBarDelegate {
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            if searchText.isEmpty {
+                isSearching = false
+            } else {
+                isSearching = true
+                filteredArtists = artists.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            }
+            tableView.reloadData()
+        }
+        
+         func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.text = ""
+            isSearching = false
+            tableView.reloadData()
+            searchBar.resignFirstResponder()
+        }
 }
 
 extension MainViewController: NetworkServiceDelegate {
     func didUpdateData(artists: [ArtistModel]) {
         DispatchQueue.main.async {
             self.artists = artists
+            self.filteredArtists = artists
             self.tableView.reloadData()
-            print(artists)
         }
     }
     
