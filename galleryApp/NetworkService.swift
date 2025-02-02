@@ -52,10 +52,10 @@ struct NetworkService {
                         ArtistModel(
                             name: artist.name,
                             bio: artist.bio,
-                            image: artist.image/*,*/
-//                            works: artist.works.map { work in
-//                                Works(title: work.title, image: work.image, info: work.info)
-//                            }
+                            image: artist.image,
+                            works: artist.works.map { work in
+                                Works(title: work.title, image: work.image, info: work.info)
+                            }
                         )
                     }
                     

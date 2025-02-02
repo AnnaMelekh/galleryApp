@@ -22,7 +22,7 @@ class Cell: UITableViewCell {
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 16)
             label.numberOfLines = 1
-            label.textColor = .black
+            label.textColor = UIColor.gray
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
@@ -30,7 +30,7 @@ class Cell: UITableViewCell {
         let bio: UILabel = {
             let label = UILabel()
             label.font = UIFont.boldSystemFont(ofSize: 14)
-            label.textColor = UIColor.gray
+            label.textColor = .black
             label.numberOfLines = 2
             label.translatesAutoresizingMaskIntoConstraints = false
             return label

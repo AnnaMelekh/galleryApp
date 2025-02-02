@@ -19,6 +19,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Artists"
+        print("NavigationController: \(String(describing: navigationController))")
+
         networkManager.delegate = self
         networkManager.performRequest(with: networkManager.url)
         
@@ -80,6 +82,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         return 130
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let artist = artists[indexPath.row]
+        let artistVC = ArtistViewController()
+        artistVC.oneArtist = artist
+        navigationController?.pushViewController(artistVC, animated: true)
+       
+    }
 }
 
 extension MainViewController: UISearchBarDelegate {

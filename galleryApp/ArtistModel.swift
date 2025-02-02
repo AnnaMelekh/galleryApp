@@ -12,7 +12,7 @@ struct ArtistModel:Decodable {
     var name: String
     var bio: String
     var image: String
-//    var works: [Works]
+    var works: [Works]
 }
 
 struct Works: Decodable {

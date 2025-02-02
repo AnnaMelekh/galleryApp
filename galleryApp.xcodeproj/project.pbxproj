@@ -19,6 +19,7 @@
 		F3B2C30E2D49575B00D046B5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2C30D2D49575B00D046B5 /* NetworkService.swift */; };
 		F3B2C3102D4957A200D046B5 /* ArtistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2C30F2D4957A200D046B5 /* ArtistModel.swift */; };
 		F3B2C3122D4958A700D046B5 /* ArtistData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2C3112D4958A700D046B5 /* ArtistData.swift */; };
+		F3CF19F62D4F54F7008E1956 /* PaintCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CF19F52D4F54F7008E1956 /* PaintCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		F3B2C30D2D49575B00D046B5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F3B2C30F2D4957A200D046B5 /* ArtistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistModel.swift; sourceTree = "<group>"; };
 		F3B2C3112D4958A700D046B5 /* ArtistData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistData.swift; sourceTree = "<group>"; };
+		F3CF19F52D4F54F7008E1956 /* PaintCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaintCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				F3B2C3112D4958A700D046B5 /* ArtistData.swift */,
 				F3B2C30B2D46C1B200D046B5 /* cell.swift */,
 				F3B2C3072D46BD9200D046B5 /* ArtistViewController.swift */,
+				F3CF19F52D4F54F7008E1956 /* PaintCell.swift */,
 				F3B2C3092D46BDB900D046B5 /* PaintingViewController.swift */,
 				F3B2C2F92D46B9C300D046B5 /* Main.storyboard */,
 				F3B2C2FC2D46B9C500D046B5 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3CF19F62D4F54F7008E1956 /* PaintCell.swift in Sources */,
 				F3B2C2F82D46B9C300D046B5 /* MainViewController.swift in Sources */,
 				F3B2C30C2D46C1B200D046B5 /* cell.swift in Sources */,
 				F3B2C2F42D46B9C300D046B5 /* AppDelegate.swift in Sources */,
