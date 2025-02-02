@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Artists"
+        navigationController?.navigationBar.prefersLargeTitles = true
         print("NavigationController: \(String(describing: navigationController))")
 
         networkManager.delegate = self
@@ -36,6 +37,7 @@ class MainViewController: UIViewController {
         
         view.addSubview(searchBar)
         view.addSubview(tableView)
+        view.backgroundColor = .white
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -46,12 +48,12 @@ class MainViewController: UIViewController {
         NSLayoutConstraint.activate([
             
             searchBar.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             searchBar.heightAnchor.constraint(equalToConstant: 90),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 5),
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 2),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)

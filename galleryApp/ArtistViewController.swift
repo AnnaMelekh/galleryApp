@@ -91,10 +91,10 @@ class ArtistViewController: UIViewController, UITableViewDataSource, UITableView
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            artistImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            artistImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             artistImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             artistImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            artistImageView.heightAnchor.constraint(equalToConstant: 250),
+            artistImageView.heightAnchor.constraint(equalToConstant: 300),
             
             nameLabel.topAnchor.constraint(equalTo: artistImageView.bottomAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
